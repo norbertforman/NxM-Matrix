@@ -51,7 +51,10 @@ class Array
     array
   end
 
+  # shift return the first chunk of the array keeping the rest
+  # transpose [[1,2,3], [1,2,3]] -> [[1,1], [2,2], [3,3]]
   def recurzive_spiral_print
     return [] if self.empty?
+    self.shift + self.transpose.reverse.recurzive_spiral_print
   end
 end
