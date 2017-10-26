@@ -7,7 +7,7 @@ describe Array do
       matrix = []
       expect(matrix.spiral_print).to eq([])
     end
-    it "NxM matrix" do
+    it "NxN matrix" do
       matrix = [
         [1,2,3,4,5],
         [6,7,8,9,10],
@@ -25,13 +25,30 @@ describe Array do
       matrix = []
       expect(matrix.recurzive_spiral_print).to eq([])
     end
-    it "NxM matrix" do
+    it "NxN matrix" do
       matrix = [
         [1,2,3],
         [4,5,6],
         [7,8,9]
       ]
       correct = [1, 2, 3, 6, 9, 8, 7, 4, 5]
+      expect(matrix.recurzive_spiral_print).to eq(correct)
+    end
+    it "NxM matrix where N > M" do
+      matrix = [
+        [1,2,3],
+        [4,5,6]
+      ]
+      correct = [1, 2, 3, 6, 5, 4]
+      expect(matrix.recurzive_spiral_print).to eq(correct)
+    end
+    it "NxM matrix where N < M" do
+      matrix = [
+        [1,2],
+        [3,4],
+        [5,6]
+      ]
+      correct = [1, 2, 4, 6, 5, 3]
       expect(matrix.recurzive_spiral_print).to eq(correct)
     end
   end
