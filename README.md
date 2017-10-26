@@ -22,4 +22,5 @@ matrix = [
   [21,22,23,24,25]
 ]
 matrix.spiral_print
+matrix.recurzive_spiral_print
 ```

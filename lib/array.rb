@@ -50,4 +50,8 @@ class Array
     end
     array
   end
+
+  def recurzive_spiral_print
+    return [] if self.empty?
+  end
 end

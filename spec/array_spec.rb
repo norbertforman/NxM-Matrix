@@ -19,4 +19,11 @@ describe Array do
       expect(matrix.spiral_print).to eq(correct)
     end
   end
+
+  describe "Recurzive NxM Matrix output test" do
+    it "empty matrix" do
+      matrix = []
+      expect(matrix.recurzive_spiral_print).to eq([])
+    end
+  end
 end
