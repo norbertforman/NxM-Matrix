@@ -28,22 +28,45 @@ class Array
     top_to_bottom = self.length - 1
     bottom_to_top = 0
 
-    while left_to_right <= right_to_left && bottom_to_top <= top_to_bottom
+    count = 0
+    total = self.flatten.length
+
+    while count < total
       case direction
       when 0
-        (bottom_to_top..top_to_bottom).each { |i| array << self[left_to_right][i]; print "#{self[left_to_right][i]} " }
+        (left_to_right..right_to_left).each do |index|
+          next if self[left_to_right].nil?
+          print "#{self[left_to_right][index]} "
+          array << self[left_to_right][index];
+          count += 1
+        end
         left_to_right += 1
         direction = 1
       when 1
-        (left_to_right..right_to_left).each { |i| array << self[i][top_to_bottom]; print "#{self[i][top_to_bottom]} " }
+        (left_to_right..top_to_bottom).each do |index|
+          next if self[index].nil?
+          print "#{self[index][right_to_left]} "
+          array << self[index][right_to_left];
+          count += 1
+        end
         top_to_bottom -= 1
         direction = 2
       when 2
-        top_to_bottom.downto(bottom_to_top).each { |i| array << self[right_to_left][i]; print "#{self[right_to_left][i]} " }
+        (right_to_left - 1).downto(bottom_to_top).each do |index|
+          next if self[right_to_left].nil?
+          print "#{self[right_to_left][index]} "
+          array << self[right_to_left][index]
+          count += 1
+        end
         right_to_left -= 1
         direction = 3
       else
-        right_to_left.downto(left_to_right).each { |i| array << self[i][bottom_to_top]; print "#{self[i][bottom_to_top]} " }
+        right_to_left.downto(left_to_right).each do |index|
+          next if self[index].nil?
+          print "#{self[index][bottom_to_top]} "
+          array << self[index][bottom_to_top]
+          count += 1
+        end
         bottom_to_top += 1
         direction = 0
       end
