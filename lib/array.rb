@@ -55,6 +55,8 @@ class Array
   # transpose [[1,2,3], [1,2,3]] -> [[1,1], [2,2], [3,3]]
   def recurzive_spiral_print
     return [] if self.empty?
-    self.shift + self.transpose.reverse.recurzive_spiral_print
+    array = self.shift
+    array.each { |i| print "#{i} "}
+    array + self.transpose.reverse.recurzive_spiral_print
   end
 end
